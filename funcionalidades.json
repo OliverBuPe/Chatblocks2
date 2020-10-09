@@ -1,0 +1,539 @@
+{
+  "contadorFijo": {
+    "name": "",
+    "description": "contador simple",
+    "example": "imagen.jpg",
+    "components": [
+      {
+        "01inicial": {
+          "type": "caseFijo",
+          "order": 1,
+          "description": "contador sencillo",
+          "explanation": {
+            "intentos": {
+              "name": "numero de intentos",
+              "description": "numero de intentos permitido",
+              "recommended": 3
+            },
+            "nombreVariable": {
+              "name": "variable de control",
+              "description": "nombre que recibe la variable de contador",
+              "recommended": "var_case"
+            },
+            "message": {
+              "name": "mensaje a desplejar",
+              "description": "mensaje que se depliega al usuario",
+              "recommended": {
+                "content": "hola prueba",
+                "type": "text"
+              }
+            },
+            "defaultMessage": {
+              "name": "mensaje por defecto",
+              "description": "mensaje que se depliega al usuario si ocurre un error en la funcionalidad",
+              "recommended": {
+                "content": "hola default",
+                "type": "text"
+              }
+            }
+          },
+          "parameters": {
+            "time": 3,
+            "url": "http://127.0.0.1:1111/increase/{{nombreVariable}}/{{intentos}}/"
+          },
+          "outputs": {
+            "salidasCase": "userDefinded",
+            "default": "userDefinded",
+            "error": "userDefinded"
+          }
+        }
+      }
+    ],
+    "outputs": {
+      "01inicial": {
+        "salidasCase": {
+          "name": "salida a donde se cicla contador"
+        },
+        "default": {
+          "name": "salida default de contador"
+        },
+        "error": {
+          "name": "salida al limite de intentos"
+        }
+      }
+    }
+  },
+  "contadorDinamico": {
+    "name": "",
+    "description": "contador simple",
+    "example": "imagen.jpg",
+    "components": [
+      {
+        "01inicial": {
+          "type": "caseDinamico",
+          "order": 1,
+          "description": "contador sencillo",
+          "explanation": {
+            "nombreVariable": {
+              "name": "variable de control",
+              "description": "nombre que recibe la variable de contador",
+              "recommended": "var_case"
+            },
+            "messages": {
+              "name": "mensajes a desplejar",
+              "description": "mensajes que se depliegan al usuario",
+              "recommended": {
+                "content": "hola prueba",
+                "type": "text"
+              }
+            },
+            "defaultMessage": {
+              "name": "mensaje por defecto",
+              "description": "mensaje que se depliega al usuario si ocurre un error en la funcionalidad",
+              "recommended": {
+                "content": "hola default",
+                "type": "text"
+              }
+            }
+          },
+          "parameters": {
+            "time": 3,
+            "url": "http://127.0.0.1:1111/increase/{{nombreVariable}}/"
+          },
+          "outputs": {
+            "salidasCase": "userDefinded",
+            "default": "userDefinded",
+            "error": "userDefinded"
+          }
+        }
+      }
+    ],
+    "outputs": {
+      "01inicial": {
+        "salidasCase": {
+          "name": "salida a donde se cicla contador"
+        },
+        "default": {
+          "name": "salida default de contador"
+        },
+        "error": {
+          "name": "salida al limite de intentos"
+        }
+      }
+    }
+  },
+  "messageRandom": {
+    "name": "",
+    "description": "contador simple",
+    "example": "imagen.jpg",
+    "components": [
+      {
+        "01inicial": {
+          "type": "caseRandomMenssage",
+          "order": 1,
+          "description": "muestra un menaje aleatorio",
+          "explanation": {
+            "nombreVariable": {
+              "name": "variable de control",
+              "description": "nombre que recibe la variable de contador",
+              "recommended": "var_case"
+            },
+            "messages": {
+              "name": "lista de que se pueden desplegar",
+              "description": "mensajes que se depliegan al usuario",
+              "recommended": [
+                {
+                  "content": "hola prueba",
+                  "type": "text"
+                }
+              ]
+            },
+            "defaultMessage": {
+              "name": "mensaje por defecto",
+              "description": "mensaje que se depliega al usuario si ocurre un error en la funcionalidad",
+              "recommended": {
+                "content": "hola default",
+                "type": "text"
+              }
+            }
+          },
+          "parameters": {
+            "time": 3,
+            "url": "http://127.0.0.1:1111/random/{{nombreVariable}}/"
+          },
+          "outputs": {
+            "next": "userDefinded",
+            "default": "userDefinded"
+          }
+        }
+      }
+    ],
+    "outputs": {
+      "01inicial": {
+        "next": {
+          "name": "siguiente bloque"
+        },
+        "default": {
+          "name": "salida default"
+        }
+      }
+    }
+  },
+  "listMessages": {
+    "name": "lista de mensajes encadenados",
+    "description": "muestra una lista de mensajes encadenados",
+    "example": "imagen.jpg",
+    "components": [
+      {
+        "01inicial": {
+          "type": "caseListMenssages",
+          "order": 1,
+          "description": "muestra un menaje aleatorio",
+          "explanation": {
+            "nombreVariable": {
+              "name": "variable de control",
+              "description": "nombre que recibe la variable de contador",
+              "recommended": "var_case"
+            },
+            "messages": {
+              "name": "lista de que se pueden desplegar",
+              "description": "mensajes que se depliegan al usuario",
+              "recommended": {
+                "content": "hola prueba",
+                "type": "text"
+              }
+            },
+            "defaultMessage": {
+              "name": "mensaje por defecto",
+              "description": "mensaje que se depliega al usuario si ocurre un error en la funcionalidad",
+              "recommended": {
+                "content": "no te entiendo",
+                "type": "text"
+              }
+            }
+          },
+          "parameters": {
+            "time": 3,
+            "url": "http://127.0.0.1:1111/increase/{{nombreVariable}}/"
+          },
+          "outputs": {
+            "next": "userDefinded",
+            "default": "userDefinded"
+          }
+        }
+      }
+    ],
+    "outputs": {
+      "01inicial": {
+        "next": {
+          "name": "siguiente bloque"
+        },
+        "default": {
+          "name": "salida default"
+        }
+      }
+    }
+  },
+  "optionMenuFijo": {
+    "name": "",
+    "description": "des un menu",
+    "example": "imagen.jpg",
+    "components": [
+      {
+        "01inicial": {
+          "type": "visual",
+          "order": 1,
+          "description": "contador sencillo",
+          "explanation": {
+            "jsonMenu": {
+              "name": "datos Menu",
+              "description": "json que contiene los datos de llenado"
+            },
+            "time": {
+              "name": "Tiempo de espera",
+              "description": "tiempo de espera para mostrar el menú"
+            },
+            "nombreVariable": {
+              "name": "variable de control",
+              "description": "nombre que recibe la variable de contador",
+              "recommended": "var_case"
+            },
+            "typeVisual": {
+              "name": "tipo de visual",
+              "description": "tipo de menu al que se va a desplegar"
+            }
+          },
+          "parameters": {
+            "handlebars": "{{#if handlebars.content}}{'content':'{{handlebars.content}}','buttons':[{{#each handlebars.buttons}}{'title':'{{title}}','next_block':'{{next_block}}'}{{#if @last}}{{else}},{{/if}}{{/each}}]}{{/if}}{{#if handlebars.elements}}[{{#each handlebars.elements}}{'title':'{{title}}','subtitle':'{{subtitle}}','image_url':'{{image_url}}','buttons':[{{#each buttons}}{'titlebutton':'{{titlebutton}}','typebutton':'{{typebutton}}','opc_nextid':'{{opc_nextid}}'}{{#if @last}}{{else}},{{/if}}{{/each}}]}{{#if @last}}{{else}},{{/if}}{{/each}}]{{/if}}"
+          },
+          "outputs": {
+            "default": "userDefinded"
+          }
+        }
+      }
+    ],
+    "outputs": {
+      "01inicial": {
+        "default": {
+          "name": "salida default de contador"
+        }
+      }
+    }
+  },
+  "userValidation": {
+    "name": "",
+    "description": "validacion de usuario",
+    "example": "imagen.jpg",
+    "components": [
+      {
+        "01inicial": {
+          "type": "visual",
+          "order": 1,
+          "description": "contador sencillo",
+          "explanation": {
+            "content": {
+              "name": "mensaje quickReply",
+              "description": "mensaje que se le muesta al usuario en el quickReply"
+            },
+            "buttonTrue": {
+              "name": "validacion positiva",
+              "description": "boton positivo"
+            },
+            "buttonFalse": {
+              "name": "validacion negativa",
+              "description": "boton negativo"
+            },
+            "time": {
+              "name": "Tiempo de espera",
+              "description": "tiempo de espera para mostrar el menú"
+            },
+            "nombreVariable": {
+              "name": "variable de control",
+              "description": "nombre que recibe la variable de contador",
+              "recommended": "var_case"
+            }
+          },
+          "parameters": {
+            "typeVisual": "quickReply",
+            "handlebars": "{'content':'{{content}}','buttons':[{'title':'{{buttonTrue.title}}','next_block':'{{buttonTrue.next_block}}'},{'title':'{{buttonFalse.title}}','next_block':'{{buttonFalse.next_block}}'}]}"
+          },
+          "outputs": {
+            "default": "userDefinded"
+          }
+        }
+      }
+    ],
+    "outputs": {
+      "01inicial": {
+        "default": {
+          "name": "salida default de contador"
+        }
+      }
+    }
+  },
+  "informativo": {
+    "name": "",
+    "description": "validacion de usuario",
+    "example": "imagen.png",
+    "components": [
+      {
+        "01inicial": {
+          "type": "informativo",
+          "order": 1,
+          "description": "despliega un mensaje",
+          "explanation": {
+            "content": {
+              "name": "mensaje quickReply",
+              "description": "mensaje que se le muesta al usuario en el quickReply"
+            },
+            "time": {
+              "name": "Tiempo de espera",
+              "description": "tiempo de espera para mostrar el menú"
+            },
+            "contentType": {
+              "name": "tipo de contenido",
+              "description": "formato en que se despliega el mensaje"
+            }
+          },
+          "parameters": {},
+          "outputs": {
+            "next": "userDefinded"
+          }
+        }
+      }
+    ],
+    "outputs": {
+      "01inicial": {
+        "next": {
+          "name": "siguiente"
+        }
+      }
+    }
+  },
+  "validacionFormato": {
+    "name": "",
+    "description": "validacion de formato con contador",
+    "example": "imagen.png",
+    "components": [
+      {
+        "01inicial": {
+          "type": "input",
+          "order": 1,
+          "description": "solicita y valida información",
+          "explanation": {
+            "content": {
+              "name": "mensaje quickReply",
+              "description": "mensaje que se le muesta al usuario en el quickReply"
+            },
+            "time": {
+              "name": "Tiempo de espera",
+              "description": "tiempo de espera para mostrar el menú"
+            },
+            "contentType": {
+              "name": "tipo de contenido",
+              "description": "formato en que se despliega el mensaje"
+            },
+            "regex": {
+              "name": "regex",
+              "description": " expresion regex para validar formato"
+            },
+            "nombreVariable": {
+              "name": "variable de control",
+              "description": "nombre que recibe la variable para capturar información"
+            }
+          },
+          "parameters": {
+            "handlebars": "{'content':'{{content}}','buttons':[{'title':'{{buttonTrue.title}}','next_block':'{{buttonTrue.next_block}}'},{'title':'{{buttonFalse.title}}','next_block':'{{buttonFalse.next_block}}'}]}"
+          },
+          "outputs": {
+            "next": "userDefinded",
+            "default": "contador"
+          }
+        }
+      },
+      {
+        "contador": {
+          "type": "caseFijo",
+          "order": 2,
+          "description": "contador sencillo",
+          "explanation": {
+            "intentos": {
+              "name": "numero de intentos",
+              "description": "numero de intentos permitido",
+              "recommended": 3
+            },
+            "nombreVariable": {
+              "name": "variable de control",
+              "description": "nombre que recibe la variable de contador"
+            },
+            "message": {
+              "name": "mensaje a desplejar",
+              "description": "mensaje que se depliega al usuario"
+            },
+            "defaultMessage": {
+              "name": "mensaje por defecto",
+              "description": "mensaje que se depliega al usuario si ocurre un error en la funcionalidad"
+            }
+          },
+          "parameters": {
+            "time": 3,
+            "url": "http://127.0.0.1:1111/increase/{{nombreVariable}}/{{intentos}}/"
+          },
+          "outputs": {
+            "salidasCase": "01inicial",
+            "default": "01inicial",
+            "error": "userDefinded"
+          }
+        }
+      }
+    ],
+    "outputs": {
+      "01inicial": {
+        "next": {
+          "name": "validacion exitosa"
+        }
+      },
+      "contador": {
+        "error": {
+          "name": "validacion fallida"
+        }
+      }
+    }
+  },
+  "input": {
+    "name": "",
+    "description": "peticion de información",
+    "example": "imagen.png",
+    "components": [
+      {
+        "01inicial": {
+          "type": "input",
+          "order": 1,
+          "description": "solicita y valida información",
+          "explanation": {
+            "content": {
+              "name": "mensaje quickReply",
+              "description": "mensaje que se le muesta al usuario en el quickReply"
+            },
+            "nombreVariable": {
+              "name": "variable de control",
+              "description": "nombre que recibe la variable para capturar información"
+            }
+          },
+          "parameters": {
+            "contentType": "text",
+            "regex": "*",
+            "time": 1
+          },
+          "outputs": {
+            "next": "userDefinded",
+            "default": "userDefinded"
+          }
+        }
+      }
+    ],
+    "outputs": {
+      "01inicial": {
+        "default": {
+          "name": "salida default de nlp"
+        },
+        "next": {
+          "name": "siguiente"
+        }
+      }
+    }
+  },
+  "nlp": {
+    "name": "",
+    "description": "peticion de información",
+    "example": "imagen.png",
+    "components": [
+      {
+        "01inicial": {
+          "type": "nlp",
+          "order": 1,
+          "description": "saltos de nlp",
+          "explanation": {
+            "json_nlp": {
+              "name": "json de NLP",
+              "description": "json con condiciones de salto por NLP"
+            }
+          },
+          "parameters": {
+            "default_message": "Lo siento pero no logro comprender lo que me pides"
+          },
+          "outputs": {
+            "default": "userDefinded"
+          }
+        }
+      }
+    ],
+    "outputs": {
+      "01inicial": {
+        "default": {
+          "name": "salida default de nlp"
+        }
+      }
+    }
+  }
+}
