@@ -390,7 +390,7 @@
           },
           "parameters": {
             "time": 3,
-            "regex": "/\\S+@\\S+\\.\\S+/",
+            "regex": "^[a-z0-9]+[\\._]?[a-z0-9]+[@]\\w+[.]\\w{2,3}$",
             "nombreVariable": "email",
             "contentType": "text"
           },
@@ -554,7 +554,7 @@
           },
           "parameters": {
             "time": 3,
-            "regex": "/\\S+@\\S+\\.\\S+/",
+            "regex": "^[a-z0-9]+[\\._]?[a-z0-9]+[@]\\w+[.]\\w{2,3}$",
             "nombreVariable": "email",
             "contentType": "text"
           },

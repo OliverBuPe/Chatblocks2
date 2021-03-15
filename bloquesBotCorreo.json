@@ -28,7 +28,7 @@
             },
             "content": "¿Cuál es tu correo?",
             "buttonTrue": {
-                "next_block": "01inicial"
+                "next_block": "pruebaCorreo"
             },
             "buttonFalse": {
                 "title": "otro"
@@ -36,7 +36,7 @@
             "typeVisual": "quickReply"
         },
         "outputs": {
-            "default_id": "pruebaCorreo_01inicial_mensajeOperador"
+            "default_id": "pruebaCorreo_01inicial_inicial"
         },
         "name": "pruebaCorreo_01inicial_inicial"
     },
@@ -48,7 +48,7 @@
             "contenido": "introduce tu correo",
             "contenttype": "text",
             "typingtime": 3,
-            "validacion": "/\\S+@\\S+\\.\\S+/",
+            "validacion": "^[a-z0-9]+[\\._]?[a-z0-9]+[@]\\w+[.]\\w{2,3}$",
             "jsonVariable": {
                 "variable": {
                     "name_var": "email",
@@ -81,7 +81,7 @@
             "messages": "intentalo de nuevo por favor",
             "default_message": "no logro comprender",
             "type_default_message": "text",
-            "options": "pruebaCorreo_capturaCorreo_inicial,pruebaCorreo_capturaCorreo_inicial,pruebaCorreo_capturaCorreo_restarVariable"
+            "options": "pruebaCorreo_capturaCorreo_inicial,pruebaCorreo_capturaCorreo_inicial,pruebaCorreo_contadorIntentos_restarVariable"
         },
         "outputs": {
             "default_id": "pruebaCorreo_capturaCorreo_inicial"
@@ -111,7 +111,7 @@
             "typingtime": 3
         },
         "outputs": {
-            "next_id": "pruebaCorreo_mensajeOperador_01inicial"
+            "next_id": "pruebaCorreo_01inicial_inicial"
         }
     },
     "pruebaCorreo_qrValidaSiNo_inicial": {

@@ -159,7 +159,7 @@
           "responsible": "UX",
           "constraints": false,
           "recommended": false,
-          "value": "01inicial"
+          "value": "pruebaCorreo"
         }
       }
     },
@@ -200,7 +200,7 @@
             "contenido": "@content",
             "contenttype": "text",
             "typingtime": 3,
-            "validacion": "/\\S+@\\S+\\.\\S+/",
+            "validacion": "^[a-z0-9]+[\\._]?[a-z0-9]+[@]\\w+[.]\\w{2,3}$",
             "jsonVariable": "{'variable':{ 'name_var':'{{nombreVariable}}','opc_type': 'Variable','var':0,'opc_data': 'String'}}",
             "nombreVariable": "email"
           },
@@ -231,7 +231,7 @@
           "outputs": {
             "default_id": "pruebaCorreo_capturaCorreo_inicial",
             "salidasCase": "pruebaCorreo_capturaCorreo_inicial",
-            "last": "pruebaCorreo_capturaCorreo_restarVariable"
+            "last": "pruebaCorreo_contadorIntentos_restarVariable"
           }
         },
         "restarVariable": {
