@@ -69,7 +69,8 @@
     "description": "bloque de procesamiento de lenguaje  natural",
     "parameters": {
       "default_message": "@defaultMessage",
-      "jsonNLP": "@jsonNLP"
+      "jsonNLP": "@jsonNLP",
+      "jsonIntensionNLP":"@jsonIntensionNLP"
     },
     "outputs": {
       "default_id": "@default"

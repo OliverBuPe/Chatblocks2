@@ -61,6 +61,21 @@ class baseDatos:
         response = requests.request("POST", url, data=payload, headers=headers)   
         return response.json() 
 
+    def getDatos(self,jsonData,tabla):      
+        print("función select")
+        url = "http://127.0.0.1:8181/select/"+str(tabla)
+        payload = json.dumps(jsonData)     
+        headers = {
+            'content-type': "application/json",
+            'cache-control': "no-cache",
+            'postman-token': "64225f1a-4ded-800c-14f2-74ff3a3d45b9"
+            }
+        response = requests.request("GET", url, data=payload, headers=headers)   
+        
+        return response.json()       
+      
+
+
     def borrarBaseDatos(self):
         connection = self.conexionBaseDeDatos()
         cursor = connection.cursor();     

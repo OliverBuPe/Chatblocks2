@@ -523,7 +523,7 @@
         "type": "string",
         "responsible": "UX",
         "recommended": false,
-        "contador": false
+        "constraints": false
       },
       "contentType": {
         "type": "select",
@@ -668,10 +668,17 @@
         "contador": false
       },
       "jsonNLP": {
-        "type": "string",
+        "type": "jsonNLP",
         "responsible": "DEV",
         "recommended": false,
         "contador": false
+      },
+      "jsonIntensionNLP":{
+        "type": "jsonIntensionNLP",
+        "responsible": "DEV",
+        "recommended": false,
+        "contador": false
+
       }
     },
     "outputs": {
@@ -689,7 +696,8 @@
         "name": "",
         "parameters": {
           "default_message": "@defaultMessage",
-          "json_nlp": "@jsonNLP"
+          "json_nlp": "@jsonNLP",
+          "jsonIntensionNLP":"@jsonIntensionNLP"
         },
         "outputs": {
           "default_id": "@default"
