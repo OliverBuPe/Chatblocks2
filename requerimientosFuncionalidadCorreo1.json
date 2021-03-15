@@ -18,9 +18,9 @@
           "responsible": "UX",
           "recommended": false,
           "constraints": false,
-          "next_block": "01inicial",
+          "next_block": "inicial",
           "value": {
-            "next_block": "01inicial"
+            "next_block": "pruebaCorreo"
           }
         },
         "buttonFalse": {
@@ -150,7 +150,7 @@
           "recommended": false,
           "constraints": false,
           "name": "salida default de contador",
-          "value": "mensajeOperador"
+          "value": "pruebaCorreo"
         }
       },
       "mensajeOperador": {
