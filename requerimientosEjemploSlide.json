@@ -1,0 +1,445 @@
+{
+    "pruebaMenu": {
+        "type": "optionMenuFijo",
+        "requerimientos": {
+            "01inicial": {
+                "jsonMenu": {
+                    "type": "jsonMenu",
+                    "responsible": "DEV",
+                    "recommended": false,
+                    "constraints": false,
+                    "name": "datos Menu",
+                    "description": "json que contiene los datos de llenado",
+                    "value": ""
+                },
+                "time": {
+                    "type": "select",
+                    "responsible": "UX",
+                    "recommended": 2,
+                    "constraints": [
+                        {
+                            "key": "uno",
+                            "value": 1
+                        },
+                        {
+                            "key": "dos",
+                            "value": 2
+                        },
+                        {
+                            "key": "tres",
+                            "value": 3
+                        }
+                    ],
+                    "name": "Tiempo de espera",
+                    "description": "tiempo de espera para mostrar el menú",
+                    "value": ""
+                },
+                "nombreVariable": {
+                    "type": "string",
+                    "responsible": "DEV",
+                    "recommended": "var_case",
+                    "constraints": false,
+                    "name": "variable de control",
+                    "description": "nombre que recibe la variable de contador",
+                    "value": ""
+                },
+                "typeVisual": {
+                    "type": "select",
+                    "responsible": "UX",
+                    "recommended": false,
+                    "constraints": [
+                        {
+                            "key": "quickreply",
+                            "value": "quickReply"
+                        },
+                        {
+                            "key": "carrusel",
+                            "value": "slide"
+                        }
+                    ],
+                    "name": "tipo de visual",
+                    "description": "tipo de menu al que se va a desplegar",
+                    "value": ""
+                }
+            }
+        },
+        "outputs": {
+            "01inicial": {
+                "default": {
+                    "type": "output",
+                    "responsible": "UX",
+                    "recommended": false,
+                    "constraints": false,
+                    "name": "salida default de contador",
+                    "value": ""
+                }
+            }
+        },
+        "blocks": {
+            "01inicial": {
+                "inicial": {
+                    "type": "@typeVisual",
+                    "description": "Funciona como un contador que permite limitar el número de intentos al realizar algun proceso",
+                    "compile": [
+                        "jsonVariable",
+                        "json"
+                    ],
+                    "parameters": {
+                        "handlebars": "@jsonMenu",
+                        "jsonVariable": "{'variable':{ 'name_var':'{{nombreVariable}}','opc_type': 'Variable','var':0,'opc_data': 'Numerico'}}",
+                        "typingtime": "@time",
+                        "nombreVariable": "@nombreVariable",
+                        "json": "{{#if handlebars.content}}{'content':'{{handlebars.content}}','buttons':[{{#each handlebars.buttons}}{'title':'{{title}}','next_block':'{{next_block}}'}{{#if @last}}{{else}},{{/if}}{{/each}}]}{{/if}}{{#if handlebars.elements}}[{{#each handlebars.elements}}{'title':'{{title}}','subtitle':'{{subtitle}}','image_url':'{{image_url}}','buttons':[{{#each buttons}}{'titlebutton':'{{titlebutton}}','typebutton':'{{typebutton}}','opc_nextid':'{{opc_nextid}}'}{{#if @last}}{{else}},{{/if}}{{/each}}]}{{#if @last}}{{else}},{{/if}}{{/each}}]{{/if}}",
+                        "content": "@content",
+                        "buttonTrue": "@buttonTrue",
+                        "buttonFalse": "@buttonFalse",
+                        "typeVisual": "@typeVisual"
+                    },
+                    "outputs": {
+                        "default_id": "@default"
+                    }
+                }
+            }
+        }
+    },
+    "saldo": {
+        "type": "informativo",
+        "requerimientos": {
+            "01inicial": {
+                "content": {
+                    "type": "string",
+                    "responsible": "UX",
+                    "recommended": false,
+                    "constraints": false,
+                    "name": "mensaje a desplegar",
+                    "description": "mensaje que se le muestra al usuario",
+                    "value": ""
+                },
+                "time": {
+                    "type": "select",
+                    "responsible": "UX",
+                    "recommended": 2,
+                    "constraints": [
+                        {
+                            "key": "uno",
+                            "value": 1
+                        },
+                        {
+                            "key": "dos",
+                            "value": 2
+                        },
+                        {
+                            "key": "tres",
+                            "value": 3
+                        }
+                    ],
+                    "name": "Tiempo de espera",
+                    "description": "tiempo de espera para mostrar el menú",
+                    "value": ""
+                },
+                "contentType": {
+                    "type": "select",
+                    "responsible": "UX",
+                    "recommended": 2,
+                    "constraints": [
+                        {
+                            "key": "imagen",
+                            "value": "image"
+                        },
+                        {
+                            "key": "texto",
+                            "value": "text"
+                        }
+                    ],
+                    "name": "tipo de contenido",
+                    "description": "formato en que se despliega el mensaje",
+                    "value": ""
+                }
+            }
+        },
+        "outputs": {
+            "01inicial": {
+                "next": {
+                    "type": "output",
+                    "responsible": "UX",
+                    "constraints": false,
+                    "recommended": false,
+                    "name": "siguiente",
+                    "value": ""
+                }
+            }
+        },
+        "blocks": {
+            "01inicial": {
+                "inicial": {
+                    "type": "informativo",
+                    "description": "bloque que despliega información",
+                    "name": "",
+                    "parameters": {
+                        "contenido": "@content",
+                        "contenttype": "@contentType",
+                        "typingtime": "@time"
+                    },
+                    "outputs": {
+                        "next_id": "@next"
+                    }
+                }
+            }
+        }
+    },
+    "estado_cuenta": {
+        "type": "informativo",
+        "requerimientos": {
+            "01inicial": {
+                "content": {
+                    "type": "string",
+                    "responsible": "UX",
+                    "recommended": false,
+                    "constraints": false,
+                    "name": "mensaje a desplegar",
+                    "description": "mensaje que se le muestra al usuario",
+                    "value": ""
+                },
+                "time": {
+                    "type": "select",
+                    "responsible": "UX",
+                    "recommended": 2,
+                    "constraints": [
+                        {
+                            "key": "uno",
+                            "value": 1
+                        },
+                        {
+                            "key": "dos",
+                            "value": 2
+                        },
+                        {
+                            "key": "tres",
+                            "value": 3
+                        }
+                    ],
+                    "name": "Tiempo de espera",
+                    "description": "tiempo de espera para mostrar el menú",
+                    "value": ""
+                },
+                "contentType": {
+                    "type": "select",
+                    "responsible": "UX",
+                    "recommended": 2,
+                    "constraints": [
+                        {
+                            "key": "imagen",
+                            "value": "image"
+                        },
+                        {
+                            "key": "texto",
+                            "value": "text"
+                        }
+                    ],
+                    "name": "tipo de contenido",
+                    "description": "formato en que se despliega el mensaje",
+                    "value": ""
+                }
+            }
+        },
+        "outputs": {
+            "01inicial": {
+                "next": {
+                    "type": "output",
+                    "responsible": "UX",
+                    "constraints": false,
+                    "recommended": false,
+                    "name": "siguiente",
+                    "value": ""
+                }
+            }
+        },
+        "blocks": {
+            "01inicial": {
+                "inicial": {
+                    "type": "informativo",
+                    "description": "bloque que despliega información",
+                    "name": "",
+                    "parameters": {
+                        "contenido": "@content",
+                        "contenttype": "@contentType",
+                        "typingtime": "@time"
+                    },
+                    "outputs": {
+                        "next_id": "@next"
+                    }
+                }
+            }
+        }
+    },
+    "reporte": {
+        "type": "informativo",
+        "requerimientos": {
+            "01inicial": {
+                "content": {
+                    "type": "string",
+                    "responsible": "UX",
+                    "recommended": false,
+                    "constraints": false,
+                    "name": "mensaje a desplegar",
+                    "description": "mensaje que se le muestra al usuario",
+                    "value": ""
+                },
+                "time": {
+                    "type": "select",
+                    "responsible": "UX",
+                    "recommended": 2,
+                    "constraints": [
+                        {
+                            "key": "uno",
+                            "value": 1
+                        },
+                        {
+                            "key": "dos",
+                            "value": 2
+                        },
+                        {
+                            "key": "tres",
+                            "value": 3
+                        }
+                    ],
+                    "name": "Tiempo de espera",
+                    "description": "tiempo de espera para mostrar el menú",
+                    "value": ""
+                },
+                "contentType": {
+                    "type": "select",
+                    "responsible": "UX",
+                    "recommended": 2,
+                    "constraints": [
+                        {
+                            "key": "imagen",
+                            "value": "image"
+                        },
+                        {
+                            "key": "texto",
+                            "value": "text"
+                        }
+                    ],
+                    "name": "tipo de contenido",
+                    "description": "formato en que se despliega el mensaje",
+                    "value": ""
+                }
+            }
+        },
+        "outputs": {
+            "01inicial": {
+                "next": {
+                    "type": "output",
+                    "responsible": "UX",
+                    "constraints": false,
+                    "recommended": false,
+                    "name": "siguiente",
+                    "value": ""
+                }
+            }
+        },
+        "blocks": {
+            "01inicial": {
+                "inicial": {
+                    "type": "informativo",
+                    "description": "bloque que despliega información",
+                    "name": "",
+                    "parameters": {
+                        "contenido": "@content",
+                        "contenttype": "@contentType",
+                        "typingtime": "@time"
+                    },
+                    "outputs": {
+                        "next_id": "@next"
+                    }
+                }
+            }
+        }
+    },
+    "menu": {
+        "type": "informativo",
+        "requerimientos": {
+            "01inicial": {
+                "content": {
+                    "type": "string",
+                    "responsible": "UX",
+                    "recommended": false,
+                    "constraints": false,
+                    "name": "mensaje a desplegar",
+                    "description": "mensaje que se le muestra al usuario",
+                    "value": ""
+                },
+                "time": {
+                    "type": "select",
+                    "responsible": "UX",
+                    "recommended": 2,
+                    "constraints": [
+                        {
+                            "key": "uno",
+                            "value": 1
+                        },
+                        {
+                            "key": "dos",
+                            "value": 2
+                        },
+                        {
+                            "key": "tres",
+                            "value": 3
+                        }
+                    ],
+                    "name": "Tiempo de espera",
+                    "description": "tiempo de espera para mostrar el menú",
+                    "value": ""
+                },
+                "contentType": {
+                    "type": "select",
+                    "responsible": "UX",
+                    "recommended": 2,
+                    "constraints": [
+                        {
+                            "key": "imagen",
+                            "value": "image"
+                        },
+                        {
+                            "key": "texto",
+                            "value": "text"
+                        }
+                    ],
+                    "name": "tipo de contenido",
+                    "description": "formato en que se despliega el mensaje",
+                    "value": ""
+                }
+            }
+        },
+        "outputs": {
+            "01inicial": {
+                "next": {
+                    "type": "output",
+                    "responsible": "UX",
+                    "constraints": false,
+                    "recommended": false,
+                    "name": "siguiente",
+                    "value": ""
+                }
+            }
+        },
+        "blocks": {
+            "01inicial": {
+                "inicial": {
+                    "type": "informativo",
+                    "description": "bloque que despliega información",
+                    "name": "",
+                    "parameters": {
+                        "contenido": "@content",
+                        "contenttype": "@contentType",
+                        "typingtime": "@time"
+                    },
+                    "outputs": {
+                        "next_id": "@next"
+                    }
+                }
+            }
+        }
+    }
+}

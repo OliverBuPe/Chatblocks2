@@ -1,0 +1,165 @@
+{
+    "pruebaMenu_01inicial_inicial": {
+        "type": "slide",
+        "description": "bloque que despliega carrucel",
+        "parameters": {
+            "handlebars": {
+                "elements": [
+                    {
+                        "title": "consulta de saldo",
+                        "subtitle": "Consulta tu saldo y estado de cuenta",
+                        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRteigzlNTo5pjDfghooCtw0lJ5s8P6X9De6ILA1bRQpMCkxS32&usqp=CAU",
+                        "buttons": [
+                            {
+                                "titlebutton": "Mi saldo",
+                                "typebutton": "postback",
+                                "opc_nextid": "saldo"
+                            },
+                            {
+                                "titlebutton": "Estado de cuenta",
+                                "typebutton": "postback",
+                                "opc_nextid": "estado_cuenta"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Reportes",
+                        "subtitle": "Hacer reporte",
+                        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSisb8VjF977xHY0pfyDW8xyq_Fm62Rpd50RNF1RG9ts0hkTlZh&usqp=CAU",
+                        "buttons": [
+                            {
+                                "titlebutton": "Reportar",
+                                "typebutton": "postback",
+                                "opc_nextid": "reporte"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Regresar al menu",
+                        "subtitle": "¿Te interesa cuidar el agua? Noticias, tips,sugerencias para mantenerte informado",
+                        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSisb8VjF977xHY0pfyDW8xyq_Fm62Rpd50RNF1RG9ts0hkTlZh&usqp=CAU",
+                        "buttons": [
+                            {
+                                "titlebutton": "Menú",
+                                "typebutton": "postback",
+                                "opc_nextid": "menu"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "jsonVariable": {
+                "variable": {
+                    "name_var": "var_MenuFijo",
+                    "opc_type": "Variable",
+                    "var": 0,
+                    "opc_data": "Numerico"
+                }
+            },
+            "typingtime": 3,
+            "json": [
+                {
+                    "title": "consulta de saldo",
+                    "subtitle": "Consulta tu saldo y estado de cuenta",
+                    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRteigzlNTo5pjDfghooCtw0lJ5s8P6X9De6ILA1bRQpMCkxS32&amp;usqp=CAU",
+                    "buttons": [
+                        {
+                            "titlebutton": "Mi saldo",
+                            "typebutton": "postback",
+                            "opc_nextid": "saldo_01inicial_inicial"
+                        },
+                        {
+                            "titlebutton": "Estado de cuenta",
+                            "typebutton": "postback",
+                            "opc_nextid": "estado_cuenta_01inicial_inicial"
+                        }
+                    ]
+                },
+                {
+                    "title": "Reportes",
+                    "subtitle": "Hacer reporte",
+                    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSisb8VjF977xHY0pfyDW8xyq_Fm62Rpd50RNF1RG9ts0hkTlZh&amp;usqp=CAU",
+                    "buttons": [
+                        {
+                            "titlebutton": "Reportar",
+                            "typebutton": "postback",
+                            "opc_nextid": "reporte_01inicial_inicial"
+                        }
+                    ]
+                },
+                {
+                    "title": "Regresar al menu",
+                    "subtitle": "¿Te interesa cuidar el agua? Noticias, tips,sugerencias para mantenerte informado",
+                    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSisb8VjF977xHY0pfyDW8xyq_Fm62Rpd50RNF1RG9ts0hkTlZh&amp;usqp=CAU",
+                    "buttons": [
+                        {
+                            "titlebutton": "Menú",
+                            "typebutton": "postback",
+                            "opc_nextid": "menu_01inicial_inicial"
+                        }
+                    ]
+                }
+            ],
+            "content": "@content",
+            "buttonTrue": "@buttonTrue",
+            "buttonFalse": "@buttonFalse",
+            "typeVisual": "slide"
+        },
+        "outputs": {
+            "default_id": "pruebaMenu_01inicial_inicial"
+        },
+        "name": "pruebaMenu_01inicial_inicial"
+    },
+    "saldo_01inicial_inicial": {
+        "type": "informativo",
+        "description": "bloque que despliega un mensaje información",
+        "name": "saldo_01inicial_inicial",
+        "parameters": {
+            "contenido": "boton de saldo",
+            "contenttype": "text",
+            "typingtime": 2
+        },
+        "outputs": {
+            "next_id": "pruebaMenu_01inicial_inicial"
+        }
+    },
+    "estado_cuenta_01inicial_inicial": {
+        "type": "informativo",
+        "description": "bloque que despliega un mensaje información",
+        "name": "estado_cuenta_01inicial_inicial",
+        "parameters": {
+            "contenido": "boton estado de cuenta",
+            "contenttype": "text",
+            "typingtime": 3
+        },
+        "outputs": {
+            "next_id": "pruebaMenu_01inicial_inicial"
+        }
+    },
+    "reporte_01inicial_inicial": {
+        "type": "informativo",
+        "description": "bloque que despliega un mensaje información",
+        "name": "reporte_01inicial_inicial",
+        "parameters": {
+            "contenido": "boton reporte",
+            "contenttype": 3,
+            "typingtime": 3
+        },
+        "outputs": {
+            "next_id": "reporte_01inicial_"
+        }
+    },
+    "menu_01inicial_inicial": {
+        "type": "informativo",
+        "description": "bloque que despliega un mensaje información",
+        "name": "menu_01inicial_inicial",
+        "parameters": {
+            "contenido": "boton menu",
+            "contenttype": "text",
+            "typingtime": ""
+        },
+        "outputs": {
+            "next_id": "pruebaMenu_01inicial_inicial"
+        }
+    }
+}
